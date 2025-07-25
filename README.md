@@ -15,7 +15,10 @@ This project focuses on simulating a **two-arm ABB YuMi robot** performing a pic
 5. **Fifth phase:** The robot picks up the next product and repeats the sequence.<img width="1332" height="705" alt="Screenshot 2025-07-25 133931 (1)" src="https://github.com/user-attachments/assets/ad02e3f9-af27-4ae7-90db-e9a11dd871cf" />
 
 
+
 The project was implemented in **ABB RobotStudio**, providing a fully simulated environment for programming and testing the YuMi robot’s dual-arm coordination and quality control process.
+
+An important part of the implementation is the **gripper control logic** — the opening and closing (release and grasp) of the robot's grippers is precisely controlled. This logic uses **persistent boolean variables (PERS BOOL)** to wait for the completion of specific gripper signals on each arm, ensuring proper synchronization before transitioning to the next step in the sequence.
 
 ## ⚙️ Technologies and Tools
 
@@ -23,11 +26,13 @@ The project was implemented in **ABB RobotStudio**, providing a fully simulated 
 - **Smart Components** – for modeling robot and peripheral devices
 - **RAPID** – ABB’s robot programming language controlling the sequence
 - **I/O Signals** – to manage communication between robot arms and peripherals
+- **PERS BOOL variables** – used for robust synchronization of gripper actions and signal completion
 
 ## 🧩 Features
 
 - Dual-arm coordination and handover of products between arms
 - Integrated quality control phase using the second arm for product inspection
 - Automated pick, inspect, place cycle with repeatable sequences
+- Gripper open/close (release/grasp) logic implemented with PERS BOOL synchronization
 - Modular project structure for easy updates and scalability
 - Realistic simulation environment enabling thorough testing of complex robot tasks
